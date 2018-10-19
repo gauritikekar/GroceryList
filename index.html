@@ -1,38 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="GroceryListApp">
 <head>
 	<meta charset="utf-8">
 	<title>Grocery List</title>
-		<script type="text/javascript src="controllers/app.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="css/list.css">
+	<script type="text/javascript src="controllers/app.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/list.css">
 </head>
-<body>
+<body ng-controller="HomeCtrl">
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-  				<a class="navbar-brand" href="#"><i class="fa fa-clipboard-list"></i> Grocery List </a>
+  				<a class="navbar-brand" href="#"><i class="fa fa-clipboard-list"></i>{{appTitle}}</a>
   			</div>
   		</div>
 	</nav>
 	
 	<div class="container">
-		<div class="col-xs-12">
+		<div class="col-xs-12" ng-controller="GroceryListItemsCtrl">
 			<ul class="list-group">
-				<li class="list-group-item">
+				<li class="list-group-item" ng-repeat="item in items">
 					<button type="button" class="btn btn-sm btn-success"><i class="fas fa-square"></i></button>
-			  		<span class="listItems">Item 1</span>
-			  		<button type="button" class="btn btn-sm editButton"><i class="fas fa-edit"></i></button>
-			  	</li>
-			  	<li class="list-group-item">
-					<button type="button" class="btn btn-sm btn-success"><i class="fas fa-square"></i></button>
-			  		<span class="listItems">Item 2</span>
-			  		<button type="button" class="btn btn-sm editButton"><i class="fas fa-edit"></i></button>
-			  	</li>
-			  	<li class="list-group-item">
-					<button type="button" class="btn btn-sm btn-success"><i class="fas fa-square"></i></button>
-			  		<span class="listItems">Item 3</span>
+			  		<span class="listItems">{{item}}</span>
 			  		<button type="button" class="btn btn-sm editButton"><i class="fas fa-edit"></i></button>
 			  	</li>
 			</ul>
