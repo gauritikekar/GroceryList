@@ -1,3 +1,19 @@
-.navbar-inverse .navbar-brand {
-	color: white;
+.fa-clipboard-list{
+	color: #5bdb48;
+}
+
+.list-group {
+	text-align: center;
+}
+
+.listItems {
+	font-weight: bold;
+}
+
+.btn-success {
+	float: left;
+}
+
+.editButton {
+	float: right;
 }
