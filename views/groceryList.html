@@ -3,10 +3,9 @@
 		Add Grocery Item
 	</a>
 	<ul class="list-group">
-		<li class="list-group-item" ng-repeat="item in items | orderBy: 'date'">
-			<button type="button" class="btn btn-sm btn-success"><i class="fas fa-square"></i></button>
-	  		<span class="listItems">{{item.name | uppercase}}</span>
-	  		<button type="button" class="btn btn-sm editButton"><i class="fas fa-edit"></i></button>
+		<li class="list-group-item" ng-repeat="item in groceryItems | orderBy: 'date'">
+			<span class="listItems">{{item.itemName | uppercase}} </span>
+			<a href="#/addItem/edit/{{item.id}}" class="btn btn-sm btn-default editButton"> <i class="fas fa-pen-square"></i> </a>
 	  	</li>
 	</ul>
 </div>	
