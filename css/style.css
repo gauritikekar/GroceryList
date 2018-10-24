@@ -13,5 +13,23 @@
 .editButton {
 	float: right;
 	margin: auto 2px;
-    padding: 3px 3px;
+    padding: 3px 9px;
+}
+
+.checkButton
+{
+	float: left;
+}
+
+.strike{
+    position: relative;
+}
+
+.strike::after {
+    border-bottom: 3px solid black;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 40%;
 }

@@ -24,11 +24,11 @@ app.config(function ($routeProvider){
 app.service("GroceryService", function (){
 	var groceryService = {};
 	groceryService.groceryItems = [
-		{id: 1, completed: true, itemName: 'Sugar', date: new Date("September 14, 2018 11:30:00")},
-		{id: 2, completed: true, itemName: 'Milk', date:new Date("September 14, 2018 11:35:00")},
-		{id: 3, completed: true, itemName: 'Tea', date: new Date("September 15, 2018 11:30:00") },
-		{id: 4, completed: true, itemName: 'Coffee', date: new Date("September 18, 2018 11:30:00") },
-		{id: 5, completed: true, itemName: 'Bread', date: new Date("September 18, 2018 11:30:00")},
+		{id: 1, completed: false, itemName: 'Sugar', date: new Date("September 14, 2018 11:30:00")},
+		{id: 2, completed: false, itemName: 'Milk', date:new Date("September 14, 2018 11:35:00")},
+		{id: 3, completed: false, itemName: 'Tea', date: new Date("September 15, 2018 11:30:00") },
+		{id: 4, completed: false, itemName: 'Coffee', date: new Date("September 18, 2018 11:30:00") },
+		{id: 5, completed: false, itemName: 'Bread', date: new Date("September 18, 2018 11:30:00")},
 	];
 
 // get grocery item by it's id
@@ -74,6 +74,11 @@ app.service("GroceryService", function (){
 		groceryService.groceryItems.splice(index, 1);
 	}
 
+	// completed items - checked or unchecked
+	groceryService.completed = function (data){
+		data.completed = !data.completed;
+	}
+
 	return groceryService;
 });
 
@@ -85,6 +90,10 @@ app.controller("HomeCtrl", ["$scope", "GroceryService", function($scope, Grocery
 
 	$scope.delete = function (data){
 		GroceryService.delete(data);
+	}
+
+	$scope.completed = function (data) {
+		GroceryService.completed(data);
 	}
 }]);
 
