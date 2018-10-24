@@ -12,4 +12,6 @@
 
 .editButton {
 	float: right;
+	margin: auto 2px;
+    padding: 3px 3px;
 }

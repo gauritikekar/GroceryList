@@ -1,11 +1,14 @@
 <div class="col-xs-12">
 	<a href="#/addItem" class="btn btn-primary btn-lg btn-block">
-		Add Grocery Item
+		<i class="fas fa-plus"></i> Add Grocery Item
 	</a>
 	<ul class="list-group">
-		<li class="list-group-item" ng-repeat="item in groceryItems | orderBy: 'date'">
+		<li class="list-group-item" ng-repeat="item in groceryItems | orderBy: '-date'">
 			<span class="listItems">{{item.itemName | uppercase}} </span>
-			<a href="#/addItem/edit/{{item.id}}" class="btn btn-sm btn-default editButton"> <i class="fas fa-pen-square"></i> </a>
+			<button type="button" ng-click="delete(item)" class="btn btn-sm btn-danger editButton"> <i class="fas fa-trash-alt"></i>
+			</button>
+			<a href="#/addItem/edit/{{item.id}}" class="btn btn-sm btn-default editButton"> <i class="fas fa-pen-square"></i>
+			</a>
 	  	</li>
 	</ul>
 </div>	

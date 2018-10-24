@@ -2,6 +2,7 @@
 <html lang="en" ng-app="GroceryListApp">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Grocery List</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -22,14 +23,16 @@
 </head>
 <body ng-controller="HomeCtrl">
 	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-  				<a class="navbar-brand" href="#"><i class="fa fa-clipboard-list"></i> {{appTitle}}</a>
-  			</div>
-  		</div>
+	    <div class="container-fluid">
+	        <div class="navbar-header">
+	            <a class="navbar-brand" href="#/">
+	                <i class="fa fa-clipboard-list"></i> Grocery List
+	            </a>
+	        </div>
+	    </div>
 	</nav>
-	
-	<div class="container" ng-view=>
+		
+	<div class="container" ng-view>
 	</div>
 
 <!-- Boot stap  -->
