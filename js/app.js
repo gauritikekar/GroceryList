@@ -65,9 +65,9 @@ app.service("GroceryService", function (){
 			data.id = groceryService.getNewId();
 			groceryService.groceryItems.push(data);
 		}
+		console.log(groceryService.groceryItems);
 	};
-
-
+	
 	return groceryService;
 });
 
@@ -84,14 +84,15 @@ app.controller("GroceryListItemCtrl", ["$scope", "$routeParams", "$location", "G
 
 		// add mew item
 		if($routeParams.id == null){	
-			$scope.groceryItem = {id:0, itemName:'Butter', completed: true, date: new Date()};
+			$scope.groceryItem = {id:0, completed: true, itemName:"", date: new Date()};
 		}
-		// edit existing item
+		// edit existing
 		else{
 			$scope.groceryItem	= _.clone(GroceryService.findById(parseInt($routeParams.id)));
 		}
 
 		$scope.save = function () {
+			console.log($scope.groceryItem);
 			GroceryService.save($scope.groceryItem);
 			$location.path("/");
 		}
