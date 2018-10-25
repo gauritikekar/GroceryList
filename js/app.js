@@ -103,7 +103,7 @@ app.controller("GroceryListItemCtrl", ["$scope", "$routeParams", "$location", "G
 
 		// add mew item
 		if($routeParams.id == null){	
-			$scope.groceryItem = {id:0, completed: true, itemName:"", date: new Date()};
+			$scope.groceryItem = {id:0, completed: false, itemName:"", date: new Date()};
 		}
 		// edit existing
 		else{
