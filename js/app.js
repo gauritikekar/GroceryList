@@ -21,15 +21,17 @@ app.config(function ($routeProvider){
 });
 
 // services
-app.service("GroceryService", function (){
+app.service("GroceryService", function ($http){
 	var groceryService = {};
-	groceryService.groceryItems = [
-		{id: 1, completed: false, itemName: 'Sugar', date: new Date("September 14, 2018 11:30:00")},
-		{id: 2, completed: false, itemName: 'Milk', date:new Date("September 14, 2018 11:35:00")},
-		{id: 3, completed: false, itemName: 'Tea', date: new Date("September 15, 2018 11:30:00") },
-		{id: 4, completed: false, itemName: 'Coffee', date: new Date("September 18, 2018 11:30:00") },
-		{id: 5, completed: false, itemName: 'Bread', date: new Date("September 18, 2018 11:30:00")},
-	];
+	groceryService.groceryItems = [];
+	// data received from server
+	$http.get("data/server_data.json")
+	.success(function(data){
+		groceryService.groceryItems = data;
+	})
+	.error(function(data){
+		console.log("Error in getting data from server_data.json");
+	})
 
 // get grocery item by it's id
 	groceryService.findById = function (data) {
@@ -65,7 +67,7 @@ app.service("GroceryService", function (){
 			data.id = groceryService.getNewId();
 			groceryService.groceryItems.push(data);
 		}
-		console.log(groceryService.groceryItems);
+		// send data to server
 	};
 	
 	// delete an item
